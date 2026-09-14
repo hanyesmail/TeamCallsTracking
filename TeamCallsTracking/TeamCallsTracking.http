@@ -1,0 +1,6 @@
+@TeamCallsTracking_HostAddress = http://localhost:5011
+
+GET {{TeamCallsTracking_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
