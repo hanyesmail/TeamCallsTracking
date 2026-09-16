@@ -11,8 +11,8 @@ namespace TeamCallsTracking.Controllers;
 [Route("api/employeeTitles")]
 public class EmployeeTitlesController(AppDbContext context) : ControllerBase
 {
-    [HttpGet("/getAll")]
-    public async Task<ActionResult<GeneralResponse>> GetAll()
+    [HttpGet("/getAllEmployeeTitles")]
+    public async Task<ActionResult<GenericResponse>> GetAll()
     {
         var titles = await context.EmployeeTitles
             .Select(et => new EmployeeTitleDto 
@@ -21,7 +21,7 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
                 TitleName = et.TitleName 
             }).ToListAsync();
 
-        return Ok(new GeneralResponse
+        return Ok(new GenericResponse
         {
             Success = true,
             Message = "Data successfully retrieved!",
@@ -30,22 +30,22 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
     }
 
 
-    [HttpGet("/byId/{id}")]
-    public async Task<ActionResult<GeneralResponse>> GetTitleById(int id)
+    [HttpGet("/getEmployeeTitleById/{id}")]
+    public async Task<ActionResult<GenericResponse>> GetTitleById(int id)
     {
         var title = await context.EmployeeTitles
             .FirstOrDefaultAsync(et => et.Id == id);
 
         if (title == null)
         {
-            return NotFound(new GeneralResponse
+            return NotFound(new GenericResponse
             {
                 Success = false,
                 Message = "The specified title does not exist!"
             });
         }
 
-        return Ok(new GeneralResponse
+        return Ok(new GenericResponse
         {
             Success = true,
             Message = "Data successfully retrieved!",
@@ -57,8 +57,8 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
         });
     }
 
-    [HttpPost("/create")]
-    public async Task<ActionResult<GeneralResponse>> Create([FromBody] CreateEmployeeTitleDto title)
+    [HttpPost("/addEmployeeTitle")]
+    public async Task<ActionResult<GenericResponse>> AddEmployeeTitle([FromBody] CreateEmployeeTitleDto title)
     {
         var employeeTitle = new EmployeeTitle
         {
@@ -71,14 +71,14 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
         var createdTitle = await context.EmployeeTitles.FirstOrDefaultAsync(et => et.Id == employeeTitle.Id);
         if (createdTitle == null)
         {
-            return BadRequest(new GeneralResponse
+            return BadRequest(new GenericResponse
             {
                 Success = false,
                 Message = "Failed to create the title!, Please try again!",
             });
         }
 
-        return Ok(new GeneralResponse
+        return Ok(new GenericResponse
         {
             Success = true,
             Message = "Employee title created successfully!",
@@ -90,15 +90,15 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
         });
     }
 
-    [HttpPut("/update")]
-    public async Task<ActionResult<GeneralResponse>> UpdateEmployeeTitle([FromBody] EmployeeTitleDto title)
+    [HttpPut("/updateEmployeeTitle")]
+    public async Task<ActionResult<GenericResponse>> UpdateEmployeeTitle([FromBody] EmployeeTitleDto title)
     {
         var updatedTitle = await context.EmployeeTitles
             .FirstOrDefaultAsync(et => et.Id == title.Id);
 
         if (updatedTitle == null)
         {
-            return NotFound(new GeneralResponse
+            return NotFound(new GenericResponse
             {
                 Success = false,
                 Message = "This employee title does not exist!"
@@ -107,7 +107,7 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
         
         updatedTitle.TitleName = title.TitleName;
         await context.SaveChangesAsync();
-        return Ok(new GeneralResponse
+        return Ok(new GenericResponse
             {
                 Success = true,
                 Message = "Employee title updated successfully!",
@@ -115,14 +115,14 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
         );
     }
 
-    [HttpDelete("/delete/{id}")]
-    public async Task<ActionResult<GeneralResponse>> DeleteEmployeeTitle(int id)
+    [HttpDelete("/deleteEmployeeTitle/{id}")]
+    public async Task<ActionResult<GenericResponse>> DeleteEmployeeTitle(int id)
     {
         var deletedTitle = await context.EmployeeTitles.FirstOrDefaultAsync(et => et.Id == id);
         
         if (deletedTitle  == null)
         {
-            return NotFound(new GeneralResponse
+            return NotFound(new GenericResponse
             {
                 Success = false,
                 Message = "This employee title does not exist!"
@@ -131,7 +131,7 @@ public class EmployeeTitlesController(AppDbContext context) : ControllerBase
 
         context.EmployeeTitles.Remove(deletedTitle);
         await context.SaveChangesAsync();
-        return Ok(new GeneralResponse
+        return Ok(new GenericResponse
             {
                 Success = true,
                 Message = "Employee title deleted successfully!",

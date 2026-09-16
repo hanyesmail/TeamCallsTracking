@@ -14,5 +14,5 @@ public class EmployeeDto
 
     public int EmployeeTitleId { get; set; }
 
-    public string EmployeeTitleName { get; set; } = string.Empty;
+    public string? EmployeeTitleName { get; set; }
 }

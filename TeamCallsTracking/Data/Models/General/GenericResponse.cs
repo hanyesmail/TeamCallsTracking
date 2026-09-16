@@ -1,6 +1,6 @@
 namespace TeamCallsTracking.Data.Models.General;
 
-public class GeneralResponse
+public class GenericResponse
 {
     public bool Success { get; set; } = true;
 
