@@ -12,7 +12,6 @@ public class CreateClientDto
     
     [Required, EmailAddress, MaxLength(100)]
     public string Email { get; set; } = string.Empty;
-
     
     [Required, MaxLength(20)]
     public string PhoneNumber { get; set; } = string.Empty;
