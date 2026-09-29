@@ -25,6 +25,9 @@ public class Call
     [MaxLength(500)]
     public string? Notes { get; set; }
 
+    
+    
+    
     [ForeignKey(nameof(CallStatusId))]
     public CallStatus? Status { get; set; } = null;
 

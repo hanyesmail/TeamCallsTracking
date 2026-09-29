@@ -10,8 +10,6 @@ public class CreateCallDto
     [Required] 
     public int ClientId { get; set; }
     
-    public DateTime CallDate { get; set; } =  DateTime.UtcNow;
-    
     [Range(0, int.MaxValue)]
     public int DurationInSeconds { get; set; }
 

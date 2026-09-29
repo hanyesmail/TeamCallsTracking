@@ -14,6 +14,8 @@ public class CallDto
     
     public DateTime CallDate { get; set; }
 
+    public int DurationInSeconds { get; set; }
+
     public int CallStatusId { get; set; }
     
     public string CallStatus { get; set; } = string.Empty;
