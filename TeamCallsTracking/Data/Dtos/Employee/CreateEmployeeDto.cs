@@ -12,6 +12,15 @@ public class CreateEmployeeDto
     
     [Required, EmailAddress, MaxLength(100)]
     public string Email { get; set; } = string.Empty;
+
+    [Required, MaxLength(100)]
+    public string Password { get; set; }  = string.Empty;
+
+    [Required, MaxLength(50)]
+    public string Role { get; set; } = string.Empty;
+
+    [Required]
+    public bool IsActive { get; set; } = true;
     
     [Required, MaxLength(20)]
     public string PhoneNumber { get; set; } = string.Empty;

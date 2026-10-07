@@ -58,53 +58,7 @@ public class EmployeesController(AppDbContext context) : ControllerBase
             }
         );
     }
-
-    [HttpPost("/addEmployee")]
-    public async Task<ActionResult<GenericResponse>> AddEmployee([FromBody] CreateEmployeeDto employee)
-    {
-        var newEmployee = new Employee
-        {
-            FirstName = employee.FirstName,
-            SecondName = employee.LastName,
-            Email = employee.Email,
-            PhoneNumber = employee.PhoneNumber,
-            EmployeeTitleId = employee.EmployeeTitleId,
-        };
-        
-        await context.Employees.AddAsync(newEmployee);
-        await context.SaveChangesAsync();
-        
-        var addedEmployee = await context.Employees.
-            Include(e => e.EmployeeTitle)
-            .FirstOrDefaultAsync(e => e.Id == newEmployee.Id);
-
-        if (addedEmployee == null)
-        {
-            return BadRequest(new GenericResponse
-            {
-                Success = false,
-                Message = "Failed to add the employee!, Please try again!"
-            });
-        }
-
-        return Ok(new GenericResponse
-        {
-            Success = true,
-            Message = "Employee successfully added",
-            Data = new EmployeeDto
-            {
-                Id = addedEmployee.Id,
-                FirstName = addedEmployee.FirstName,
-                LastName = addedEmployee.SecondName,
-                Email = addedEmployee.Email,
-                PhoneNumber = addedEmployee.PhoneNumber,
-                EmployeeTitleId = addedEmployee.EmployeeTitleId,
-                EmployeeTitleName = addedEmployee.EmployeeTitle != null ?
-                    addedEmployee.EmployeeTitle.TitleName : string.Empty
-            }
-        });
-    }
-
+    
     [HttpPut("/updateEmployee")]
     public async Task<ActionResult<GenericResponse>> UpdateEmployee(EmployeeDto employee)
     {

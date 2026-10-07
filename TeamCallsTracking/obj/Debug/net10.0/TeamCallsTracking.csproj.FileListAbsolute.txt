@@ -266,3 +266,12 @@
 /Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 /Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 /Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/obj/Debug/net10.0/TeamCallsTracking.sourcelink.json
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/BCrypt-Net-Next.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/Microsoft.IdentityModel.Logging.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
+/Users/hanymah/Desktop/My Mac/Work/asp.net_core_apps/TeamCallsTracking/TeamCallsTracking/bin/Debug/net10.0/System.IdentityModel.Tokens.Jwt.dll

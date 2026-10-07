@@ -26,5 +26,12 @@ public class Employee
     [ForeignKey(nameof(EmployeeTitleId))]
     public EmployeeTitle? EmployeeTitle { get; set; }
     
+    // Authentication
+    public string PasswordHash { get; set; } = string.Empty;
+
+    public bool IsActive { get; set; } = true;
+    
+    public string Role { get; set; } = "Agent";
+    
     public ICollection<Call> Calls { get; set; } = [];
 }

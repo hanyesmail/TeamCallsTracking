@@ -11,16 +11,16 @@ public class CallConfiguration : IEntityTypeConfiguration<Call>
         builder.HasOne(c => c.Status)
             .WithMany(s => s.Calls)
             .HasForeignKey(c => c.CallStatusId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.NoAction);
         
         builder.HasOne(c => c.EmployeeData)
             .WithMany(s => s.Calls)
             .HasForeignKey(c => c.EmployeeId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.NoAction);
         
         builder.HasOne(c => c.ClientData)
             .WithMany(s => s.Calls)
             .HasForeignKey(c => c.ClientId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

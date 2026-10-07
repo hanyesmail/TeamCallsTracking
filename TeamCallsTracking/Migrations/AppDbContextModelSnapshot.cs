@@ -119,9 +119,20 @@ namespace TeamCallsTracking.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SecondName")
@@ -130,6 +141,9 @@ namespace TeamCallsTracking.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.HasIndex("EmployeeTitleId");
 
@@ -157,19 +171,19 @@ namespace TeamCallsTracking.Migrations
                     b.HasOne("TeamCallsTracking.Data.Models.CallStatus", "Status")
                         .WithMany("Calls")
                         .HasForeignKey("CallStatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("TeamCallsTracking.Data.Models.Client", "ClientData")
                         .WithMany("Calls")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("TeamCallsTracking.Data.Models.Employee", "EmployeeData")
                         .WithMany("Calls")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("ClientData");

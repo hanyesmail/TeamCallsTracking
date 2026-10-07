@@ -12,5 +12,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
             .WithMany(et => et.Employees)
             .HasForeignKey(e => e.EmployeeTitleId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasIndex(e => e.Email).IsUnique();
     }
 }
