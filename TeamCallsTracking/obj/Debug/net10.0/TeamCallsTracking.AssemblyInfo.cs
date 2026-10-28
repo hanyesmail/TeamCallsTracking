@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeamCallsTracking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+911f60b893d7ff0bb01d1c87f6670058e592f2fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74bd558c76bf5f0304dae60996a7347252889901")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeamCallsTracking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeamCallsTracking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
