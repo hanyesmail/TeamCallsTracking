@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TeamCallsTracking.Data;
@@ -12,6 +13,7 @@ namespace TeamCallsTracking.Controllers;
 public class CallController(AppDbContext context) : ControllerBase
 {
     [HttpGet("/getAllCalls")]
+    [Authorize(Roles = "Admin,TeamLeader")]
     public async Task<ActionResult<GenericResponse>> GetAllCalls()
     {
         var calls = await context.Calls
